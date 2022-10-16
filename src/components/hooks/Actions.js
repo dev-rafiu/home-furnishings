@@ -1,0 +1,9 @@
+export const LOADING = "LOADING";
+export const CLOSE_MODAL = "CLOSE_MODAL";
+export const SHOW_DETAILS = "SHOW_DETAILS";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const CLEAR_CART = "CLEAR_CART";
+export const INCREAMENT = "INCREAMENT";
+export const DECREAMENT = "DECREAMENT";
+export const GET_TOTAL = "GET_TOTAL";
