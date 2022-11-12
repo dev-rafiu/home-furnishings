@@ -5,15 +5,13 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 // pages
 import About from "./components/Pages/About";
-import Contact from "./components/Pages/Contact";
 import Error from "./components/Pages/Error";
 import Cart from "./components/Cart/Cart";
 
-const defaultState = {
+const initialState = {
   cart: [],
   modalItem: {},
   showModal: false,
@@ -23,16 +21,7 @@ const defaultState = {
 
 function App() {
   const [data, setData] = useState([]);
-  const [state, dispatch] = useReducer(reducer, defaultState);
-
-  // const arr = [
-  //   { id: 1, name: "first" },
-  //   { id: 2, name: "second" },
-  //   { id: 3, name: "third" },
-  // ];
-  // console.log(arr);
-  // let index = arr.findIndex((item) => item.id === 1);
-  // console.log(index);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const getData = async () => {
     try {
@@ -92,7 +81,6 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      {/* <Footer /> */}
     </context.Provider>
   );
 }

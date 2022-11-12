@@ -13,11 +13,13 @@ function Product({ item }) {
         <img src={URL} alt={name} className="product__img" />
       </div>
       <div className="details">
-        <h4 className="product__name">{name}</h4>
-        <h5 className="product__price">
-          GH¢
-          {price / 100}
-        </h5>
+        <div className="info flex">
+          <h4>{name}</h4>
+          <h5>
+            GH¢
+            {price / 100}
+          </h5>
+        </div>
         <button className="add-btn" onClick={() => addToCart(item)}>
           <i className="fa-solid fa-cart-shopping"></i>
           <span>Add To Cart</span>

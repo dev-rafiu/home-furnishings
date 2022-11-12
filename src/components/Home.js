@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
+
 import Product from "./Product";
-import { context } from "./hooks/context";
 import Loading from "./Loading";
+import { context } from "./hooks/context";
 
 function Products({ data }) {
   const { isLoading } = useContext(context);
 
   return (
     <>
-      {isLoading && <Loading />}
-
-      {!isLoading && (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <main>
           <div className="section-center">
             {data.map((item) => (

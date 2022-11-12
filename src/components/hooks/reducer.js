@@ -1,4 +1,3 @@
-import { useReducer } from "react";
 import {
   LOADING,
   CLOSE_MODAL,
@@ -8,7 +7,6 @@ import {
   CLEAR_CART,
   INCREAMENT,
   DECREAMENT,
-  GET_TOTAL,
 } from "./Actions";
 
 export const reducer = (state, action) => {

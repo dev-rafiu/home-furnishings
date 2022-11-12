@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { context } from "../hooks/context";
 
 function Cart() {
@@ -13,13 +13,12 @@ function Cart() {
         ) : (
           cart.map((item) => (
             <article key={item.id} className="product flex">
-              <div className="product-info flex">
+              <div className="product-details flex">
                 <img src={item.fields.image[0].url} alt={item.fields.name} />
-                <div className="details">
-                  <h4 className="product__name">{item.fields.name}</h4>
-                  <h5 className="product__price">
-                    GH¢ {item.fields.price / 100}
-                  </h5>
+                <div className="info">
+                  <h4>{item.fields.name}</h4>
+                  <h5>GH¢ {item.fields.price / 100}</h5>
+
                   <button
                     onClick={() => removeCartItem(item.id)}
                     className="remove-btn"
@@ -35,15 +34,15 @@ function Cart() {
                   className="increase-count"
                 >
                   <i className="fa-sharp fa-solid fa-angle-up"></i>
-                  {/* + */}
                 </button>
-                <span className="count">{item.count}</span>
+
+                <div className="count">{item.count}</div>
+
                 <button
                   onClick={() => decreament(item.id)}
                   className="decrease-count"
                 >
                   <i className="fa-solid fa-angle-down"></i>
-                  {/* - */}
                 </button>
               </div>
             </article>

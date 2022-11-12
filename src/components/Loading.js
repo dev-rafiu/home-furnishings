@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { context } from "./hooks/context";
+import React from "react";
 
 function Loading() {
   return (
