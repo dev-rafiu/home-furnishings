@@ -30,7 +30,7 @@ function App() {
         "https://course-api.com/javascript-store-products"
       );
       const data = await response.json();
-      dispatch({ type: "LOADING" });
+      dispatch({ type: "DATA" });
       data.forEach((item) => {
         item.count = 1;
       });

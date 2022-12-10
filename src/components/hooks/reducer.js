@@ -1,5 +1,5 @@
 import {
-  LOADING,
+  DATA,
   CLOSE_MODAL,
   SHOW_DETAILS,
   ADD_TO_CART,
@@ -11,7 +11,7 @@ import {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case LOADING: {
+    case DATA: {
       return { ...state, isLoading: false };
     }
 

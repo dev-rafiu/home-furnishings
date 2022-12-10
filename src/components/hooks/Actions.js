@@ -1,4 +1,4 @@
-export const LOADING = "LOADING";
+export const DATA = "DATA";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 export const SHOW_DETAILS = "SHOW_DETAILS";
 export const ADD_TO_CART = "ADD_TO_CART";
