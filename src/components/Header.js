@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { context } from "./hooks/context";
 import { Link } from "react-router-dom";
+
 function Nav() {
   const { cart } = useContext(context);
   return (

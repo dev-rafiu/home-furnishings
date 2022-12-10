@@ -3,6 +3,7 @@ import { context } from "./components/hooks/context";
 import { reducer } from "./components/hooks/reducer";
 import { Routes, Route } from "react-router-dom";
 
+// components
 import Home from "./components/Home";
 import Header from "./components/Header";
 
@@ -67,11 +68,11 @@ function App() {
     <context.Provider
       value={{
         ...state,
-        addToCart: addToCart,
-        increament: increament,
-        decreament: decreament,
-        clearCart: clearCart,
-        removeCartItem: removeCartItem,
+        addToCart,
+        increament,
+        decreament,
+        clearCart,
+        removeCartItem,
       }}
     >
       <Header />
