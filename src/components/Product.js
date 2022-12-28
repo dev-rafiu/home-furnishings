@@ -1,11 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { context } from "./hooks/context";
 
 function Product({ item }) {
   const { addToCart } = useContext(context);
+  const [isClicked, setIsClicked] = useState(false);
 
   const { image, name, price } = item.fields;
   const URL = image[0].url;
+
+  function setInCart() {
+    setIsClicked(true);
+    addToCart(item);
+  }
 
   return (
     <article className="product">
@@ -20,9 +26,9 @@ function Product({ item }) {
             {price / 100}
           </h5>
         </div>
-        <button className="add-btn" onClick={() => addToCart(item)}>
+        <button className="add-btn" onClick={() => setInCart()}>
           <i className="fa-solid fa-cart-shopping"></i>
-          <span>Add To Cart</span>
+          <span> {isClicked ? "In Cart" : "Add To Cart"}</span>
         </button>
       </div>
     </article>

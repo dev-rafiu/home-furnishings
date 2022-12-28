@@ -26,6 +26,7 @@ function Nav() {
 
         <div className="cart-area">
           <Link to="/cart" className="cart-link">
+            <span className="sr-only">Cart</span>
             <i className="fa-solid fa-cart-shopping"></i>
           </Link>
           <div className="items-count">{cart.length}</div>

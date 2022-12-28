@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { context } from "../hooks/context";
 
 function Cart() {
-  const { cart, increament, decreament, clearCart, removeCartItem } =
+  const { cart, increaseCount, decreaseCount, clearCart, removeCartItem } =
     useContext(context);
 
   return (
@@ -23,6 +23,7 @@ function Cart() {
                     onClick={() => removeCartItem(item.id)}
                     className="remove-btn"
                   >
+                    {/* <i className="fa-solid fa-trash"></i> */}
                     Remove
                   </button>
                 </div>
@@ -30,19 +31,19 @@ function Cart() {
 
               <div className="item-count flex">
                 <button
-                  onClick={() => increament(item.id)}
+                  onClick={() => increaseCount(item.id)}
                   className="increase-count"
                 >
-                  <i className="fa-sharp fa-solid fa-angle-up"></i>
+                  <i className="fa-solid fa-plus"></i>
                 </button>
 
                 <div className="count">{item.count}</div>
 
                 <button
-                  onClick={() => decreament(item.id)}
+                  onClick={() => decreaseCount(item.id)}
                   className="decrease-count"
                 >
-                  <i className="fa-solid fa-angle-down"></i>
+                  <i className="fa-solid fa-minus"></i>
                 </button>
               </div>
             </article>

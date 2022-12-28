@@ -1,12 +1,10 @@
 import {
   DATA,
-  CLOSE_MODAL,
-  SHOW_DETAILS,
   ADD_TO_CART,
   REMOVE_CART_ITEM,
   CLEAR_CART,
-  INCREAMENT,
-  DECREAMENT,
+  INCREASE_COUNT,
+  DECREASE_COUNT,
 } from "./Actions";
 
 export const reducer = (state, action) => {
@@ -14,32 +12,19 @@ export const reducer = (state, action) => {
     case DATA: {
       return { ...state, isLoading: false };
     }
-
-    case CLOSE_MODAL: {
-      return { ...state, showModal: false };
-    }
-
-    case SHOW_DETAILS: {
-      return {
-        ...state,
-        showModal: true,
-        modalItem: { ...action.payLoad },
-      };
-    }
-
     case ADD_TO_CART: {
-      const newItem = { ...action.payLoad };
       const index = state.cart.findIndex(
         (item) => item.id === action.payLoad.id
       );
-      return index >= 0
-        ? { ...state }
-        : {
-            ...state,
-            cart: [...state.cart, newItem],
-          };
-    }
 
+      if (index >= 0) {
+        return { ...state };
+      }
+      return {
+        ...state,
+        cart: [...state.cart, action.payLoad],
+      };
+    }
     case REMOVE_CART_ITEM: {
       return {
         ...state,
@@ -48,19 +33,16 @@ export const reducer = (state, action) => {
         }),
       };
     }
-
-    case INCREAMENT: {
+    case INCREASE_COUNT: {
       const newCart = state.cart.map((cartItem) => {
         if (cartItem.id === action.payLoad) {
           return { ...cartItem, count: cartItem.count + 1 };
         }
         return cartItem;
       });
-
       return { ...state, cart: newCart };
     }
-
-    case DECREAMENT: {
+    case DECREASE_COUNT: {
       const newCart = state.cart
         .map((cartItem) => {
           if (cartItem.id === action.payLoad) {
@@ -74,7 +56,6 @@ export const reducer = (state, action) => {
 
       return { ...state, cart: newCart };
     }
-
     case CLEAR_CART: {
       return { ...state, cart: [] };
     }

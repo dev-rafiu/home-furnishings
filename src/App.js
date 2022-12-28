@@ -14,8 +14,6 @@ import Cart from "./components/Cart/Cart";
 
 const initialState = {
   cart: [],
-  modalItem: {},
-  showModal: false,
   isLoading: true,
   total: 0,
 };
@@ -32,6 +30,7 @@ function App() {
       const data = await response.json();
       dispatch({ type: "DATA" });
       data.forEach((item) => {
+        item.inCart = false;
         item.count = 1;
       });
       setData(data);
@@ -44,20 +43,20 @@ function App() {
     getData();
   }, []);
 
-  const addToCart = (item) => {
-    dispatch({ type: "ADD_TO_CART", payLoad: item });
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payLoad: product });
   };
 
-  const removeCartItem = (id) => {
-    dispatch({ type: "REMOVE_CART_ITEM", payLoad: id });
+  const removeCartItem = (productID) => {
+    dispatch({ type: "REMOVE_CART_ITEM", payLoad: productID });
   };
 
-  const increament = (id) => {
-    dispatch({ type: "INCREAMENT", payLoad: id });
+  const increaseCount = (productID) => {
+    dispatch({ type: "INCREASE_COUNT", payLoad: productID });
   };
 
-  const decreament = (id) => {
-    dispatch({ type: "DECREAMENT", payLoad: id });
+  const decreaseCount = (productID) => {
+    dispatch({ type: "DECREASE_COUNT", payLoad: productID });
   };
 
   const clearCart = () => {
@@ -69,8 +68,8 @@ function App() {
       value={{
         ...state,
         addToCart,
-        increament,
-        decreament,
+        increaseCount,
+        decreaseCount,
         clearCart,
         removeCartItem,
       }}
