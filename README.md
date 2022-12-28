@@ -1,6 +1,6 @@
 # First commit
 
-In this project I developed an e–ecommerce site for a furniture shop (side project).
+In this project I developed an E–commerce site for a furniture shop (side project).
 
 Worked on this project to understand the shopping cart functionality in e-ecommerce applications.
 
